@@ -1,7 +1,8 @@
 import os
 import pandas as pd
 import xml.etree.ElementTree as ET
-from flask import Flask, request, render_template, send_file
+from flask import Flask, request, render_template, send_file, send_from_directory
+import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
@@ -65,8 +66,7 @@ def generate_tally_xml(data):
     
     return xml_file
 
-
-# Route for displaying monthly profit and loss summary
+# Route for displaying monthly profit and loss summary with a pie chart
 @app.route('/dashboard', methods=['GET'])
 def dashboard():
     # Load sales data from CSV (or Excel if needed)
@@ -101,9 +101,23 @@ def dashboard():
     )
     summary['profit_or_loss'] = summary['settled_amount'] - summary['total_expenses']
     
-    return summary.to_html()
+    # Generate Pie Chart
+    pie_chart_path = os.path.join(UPLOAD_FOLDER, 'profit_loss_pie_chart.png')
+    generate_pie_chart(summary, pie_chart_path)
 
+    return render_template('dashboard.html', summary=summary.to_html(), pie_chart=pie_chart_path)
+
+def generate_pie_chart(summary, path):
+    labels = summary.index.astype(str)  # Convert month Period to string for labels
+    sizes = summary['profit_or_loss']  # Use profit/loss for pie chart sizes
+    colors = plt.cm.Paired(range(len(sizes)))  # Generate colors
+
+    plt.figure(figsize=(8, 6))
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, colors=colors)
+    plt.title('Monthly Profit or Loss Summary')
+    plt.axis('equal')  # Equal aspect ratio ensures the pie chart is a circle.
+    plt.savefig(path)  # Save the pie chart as an image
+    plt.close()
 
 if __name__ == '__main__':
     app.run(debug=True)
-
