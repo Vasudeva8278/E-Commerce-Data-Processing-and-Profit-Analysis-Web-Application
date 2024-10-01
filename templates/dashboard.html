@@ -1,16 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .summary div {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 48%;
+            text-align: center;
+        }
+
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-    <h1>Monthly Profit and Loss Summary</h1>
-    <div>
-        {{ summary|safe }}
+    <div class="container">
+        <h1>Data Analysis Dashboard</h1>
+        <div class="summary">
+            <div>
+                <h2>Total Price</h2>
+                <p>{{ total_price }}</p>
+            </div>
+            <div>
+                <h2>Total Tax</h2>
+                <p>{{ total_tax }}</p>
+            </div>
+        </div>
+
+        <h2>Price Distribution Chart</h2>
+        <!-- Static Image Path for Pie Chart -->
+        <img src="{{ url_for('static', filename='images/p1.png') }}" alt="p1">
+
+        <h2>Expense Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item</th>
+                    <th>Customer ID</th>
+                    <th>Commission</th>
+                    <th>GST</th>
+                    <th>Tax</th>
+                    <th>Shipping Charge</th>
+                    <th>Price</th>
+                    <th>Final Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <
+                    <td>{{ row['item'] }}</td>
+                    <td>{{ row['customer_id'] }}</td>
+                    <td>{{ row['commission'] }}</td>
+                    <td>{{ row['gst'] }}</td>
+                    <td>{{ row['tax'] }}</td>
+                    <td>{{ row['shippingcharge'] }}</td>
+                    <td>{{ row['price'] }}</td>
+                    <td>{{ row['final_price'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('home') }}" class="btn">Upload Another File</a>
     </div>
-    <h2>Profit or Loss Pie Chart</h2>
-    <img src="{{ url_for('static', filename='images/pie.png') }}" alt="Profit or Loss Pie Chart">
 </body>
 </html>
