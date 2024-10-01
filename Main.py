@@ -8,12 +8,11 @@ app = Flask(__name__)
 # Function to analyze the CSV data
 def analyze_data(file_path):
     df = pd.read_csv(file_path)
-    
-    # Example analysis: calculating total price and total tax
+   
     total_price = df['final_price'].sum()
     total_tax = df['tax'].sum()
     
-    # Example: Creating a pie chart for the distribution of the item prices
+   
     plt.figure(figsize=(8, 6))
     df.groupby('item')['final_price'].sum().plot(kind='pie', autopct='%1.1f%%')
     plt.title('Distribution of Final Price by Item')
