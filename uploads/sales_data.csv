@@ -1,0 +1,63 @@
+Unnamed: 0,Unnamed: 1
+,
+,
+"Dear Seller,",
+Use of this report,"This report lists a summary of all transactions that were part of the NEFT mentioned in the file name, and includes settled transactions only."
+,
+Sub reports/ Sheets included in this report,
+Orders,This contains the summary of all transactions related to orders received for your products. It includes information about settled payments only.
+MP Fee Rebate,This contains the summary of Rewards\ MP fee Rebate paid
+Value Added Services,This contains the summary of value added services purchased by you
+Storage & Recall,This contains the summary of all settled transactions related to Storage and Removal services availed by you.
+Non Order SPF,This contains the summary of all settled Protection Fund transactions related to items lost in the warehouse.
+Ads,This contains the summary of all settled Ads transactions.
+Value Added Services,This contains Value Added Services purchased by you using payment balance on the seller portal
+TDS,This contains the summary of all settled transactions against TDS claims filed by you.
+Tax Details,This contains the details of the GST collected from you for every transaction
+TCS Recovery,This contains the details of TCS recovered from you for your transactions
+,
+Terms/Column descriptions for each sheet,
+1. Orders,
+Column Group,Information
+Payment Details,"Contains NEFT ID, Date and Settlement Value."
+Transaction Summary,"Includes Order, Item ID, Product Selling Price, Offer, Marketplace Fee, Taxes, and other fee heads like Protection Fund."
+Marketplace Fees,Complete break-up of the Marketplace Fee.
+Taxes,Complete break-up of the taxes charged.
+Offer Adjustments,Explains the calculation of offer adjustment amount (if applicable)
+Shipping Details,"Complete details about the weights, dimensions and zone used when calculating shipping fee. Includes seller provided dead weight and volumetric weight as well as Profiler weight, if applicable."
+Order Details,"Includes detailed information about an order: FSN, SKU, Order Quantity, Order Date, Dispatch Date, etc."
+Buyer Invoice Details,"Contains ID, Date and Amount mentioned in the buyer invoice."
+Buyer Sale Details,"Includes information about the selling price and customer discounts offered, if any."
+,
+2.MP Fee Rebate,
+Column Group,Information
+Payment Details,"Contains NEFT ID, Date and Settlement Value of MP fee rebates for the seller incentive program. These are reversals of MP fees charged to you on applicable orders"
+Order Details,"Contains Order ID, Order Item ID, SKU ID, Order date and Rebate Processing date"
+,
+3. Storage & Recall,
+Column Group,Information
+Payment Details,"Contains NEFT ID, Date and Settlement Value."
+Transaction Summary,"Includes Service Name (Storage / Recall), Listing ID, Recall ID, FSN, SKU, Marketplace Fee, and Taxes."
+Marketplace Fees,"Complete break-up of the Marketplace fee showing charges under each Storage fee, and Removal fee."
+Taxes,Complete break-up of the taxes charged.
+Product Weight Details,Details about the product weight and dimensions used for calculating storage and removal charges.
+,
+4. Non Order SPF,
+Column Group,Information
+Payment Details,"Contains NEFT ID, Date and Settlement Value."
+Claim Details,Contains Claim ID and Protection Reason.
+Product Details,"Contains FSN, SKU, Selling Price and Warehouse ID related to the inventory."
+,
+5. Ads,
+Column Group,Information
+Payment Details,"Contains NEFT ID, Date and Settlement Value."
+Transaction Summary,"Includes Transaction Type (Redeem, Refund, Topup), Campaign ID, Transaction ID, amount transferred from Postpaid balance to Wallet, amount transferred back to Wallet, and Taxes."
+Taxes,Complete break-up of the taxes charged.
+,
+6. Value Added Services,
+Column Group,Information
+Payment Details,"Contains NEFT ID, Date and Settlement Value."
+Transaction Summary,"Includes transaction details like Service Name, Service Details, Date of Purchase, Amount, etc."
+Break-Up,Contains break-up of the total amount into service fee and GST.
+,
+7. TDS,

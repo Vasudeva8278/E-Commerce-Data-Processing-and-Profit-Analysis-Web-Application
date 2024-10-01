@@ -1,19 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Profit and Loss Summary</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <title>Dashboard</title>
 </head>
 <body>
-    <h1>Profit and Loss Dashboard</h1>
-    <div class="container">
-        {% for table in tables %}
-            <h3>Monthly Summary</h3>
-            {{ table|safe }}
-        {% endfor %}
+    <h1>Monthly Profit and Loss Summary</h1>
+    <div>
+        {{ summary|safe }}
     </div>
-    <a href="/generate_xml" class="btn btn-primary">Download Tally XML</a>
+    <h2>Profit or Loss Pie Chart</h2>
+    <img src="{{ url_for('static', filename='images/pie.png') }}" alt="Profit or Loss Pie Chart">
 </body>
 </html>
